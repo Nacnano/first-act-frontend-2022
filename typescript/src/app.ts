@@ -18,13 +18,13 @@ async function getData() {
     for(const course in courses) {
       const section = document.createElement("section");
       section.classList.add("course");
-      section.innerHTML = '<h3> 2110101 COMP PROG</h3> <h4> จำนวนหน่วยกิต</h4> <p> 3 หน่วยกิต</p> <h4>วันที่เรียน</h4> <ul> 
+      section.innerHTML = "<h3> ${course.courseNo} </h3> <h4> จำนวนหน่วยกิต</h4> <p> 3 หน่วยกิต</p> <h4>วันที่เรียน</h4> <ul> 
           <li> วันพุธ</li>
           <li> วันพฤหัสบดี</li>
       </ul>
 
       <h4> จำนวนที่นั่ง</h4>
-      <p> 284/300</p>';
+      <p> 284/300</p>";
       const container =document.getElementById("section");
       container?.appendChild(section);
     }
