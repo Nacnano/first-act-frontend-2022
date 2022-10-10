@@ -14,18 +14,18 @@ async function getData() {
     const response = await fetch("https://firstact-api.thinc.in.th/courses");
     const data = await response.json();
     const courses: Course[] = data.courses;
-    const container = document.getElementsByName("section")
+    const container = document.getElementById("courses-container");
     for(const course in courses) {
       const section = document.createElement("section");
       section.classList.add("course");
-      section.innerHTML = "<h3> ${course.courseNo} </h3> <h4> จำนวนหน่วยกิต</h4> <p> 3 หน่วยกิต</p> <h4>วันที่เรียน</h4> <ul> 
-          <li> วันพุธ</li>
-          <li> วันพฤหัสบดี</li>
-      </ul>
-
-      <h4> จำนวนที่นั่ง</h4>
-      <p> 284/300</p>";
-      const container =document.getElementById("section");
+      section.innerHTML = `<h3> ${course.courseNo} ${course.abbrName} </h3> 
+      <h4> จำนวนหน่วยกิต</h4> 
+      <p> ${course.credit} หน่วยกิต</p> 
+      <h4>ภาควิชา/กลุ่มวิชา/สาขาวิชา</h4>
+      <p> ${course.department} </p>
+      <h4> ประเภท GenEd </h4>
+      <p> ${course.genEdType == 'NO' ? 'ไม่ใช่ GenEd' : course.genEdType} </p>
+      `;
       container?.appendChild(section);
     }
 }
