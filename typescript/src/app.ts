@@ -15,7 +15,7 @@ async function getData() {
     const data = await response.json();
     const courses: Course[] = data.courses;
     const container = document.getElementById("courses-container");
-    for(const course in courses) {
+    for(const course of courses) {
       const section = document.createElement("section");
       section.classList.add("course");
       section.innerHTML = `<h3> ${course.courseNo} ${course.abbrName} </h3> 

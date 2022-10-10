@@ -13,8 +13,8 @@ function getData() {
         const response = yield fetch("https://firstact-api.thinc.in.th/courses");
         const data = yield response.json();
         const courses = data.courses;
-        const container = document.getElementsByName("section");
-        for (const course in courses) {
+        const container = document.getElementById("courses-container");
+        for (const course of courses) {
             const section = document.createElement("section");
             section.classList.add("course");
             section.innerHTML = `<h3> ${course.courseNo} ${course.abbrName} </h3> 
@@ -25,7 +25,6 @@ function getData() {
       <h4> ประเภท GenEd </h4>
       <p> ${course.genEdType == 'NO' ? 'ไม่ใช่ GenEd' : course.genEdType} </p>
       `;
-            const container = document.getElementById("section");
             container === null || container === void 0 ? void 0 : container.appendChild(section);
         }
     });
